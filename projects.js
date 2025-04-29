@@ -1,3 +1,15 @@
+(function() {
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.tagName === 'CHATGPT-SIDEBAR') {
+          node.remove();
+        }
+      });
+    });
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
 document.addEventListener('DOMContentLoaded', () => {
   // Parte 1: Menu hamburguer
   const menuToggle = document.getElementById('menu-toggle');
