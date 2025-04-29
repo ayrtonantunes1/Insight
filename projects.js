@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Parte 1: Menu hamburguer
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active'); // adiciona a animação do X
+  });
+  
+  // Fecha o menu ao clicar em algum link
+  const navLinks = document.querySelectorAll('.nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Parte 2: Botão de carregar projetos
   const btnLoad = document.getElementById('load-more-projects');
   const container = document.getElementById('projects-container');
   let isExpanded = false;
@@ -18,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnLoad.addEventListener('click', () => {
     if (!isExpanded) {
-      // cria os dois novos cards
       const card1 = document.createElement('div');
       card1.className = 'card';
       card1.innerHTML = `
@@ -45,20 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
       container.appendChild(card2);
       dynamicCards.push(card1, card2);
 
-      // Aplica também nos novos links
       setLinksToOpenInNewTab(card1);
       setLinksToOpenInNewTab(card2);
 
       btnLoad.textContent = 'Ver menos projetos';
       isExpanded = true;
     } else {
-      // remove os cards dinâmicos
       dynamicCards.forEach(c => container.removeChild(c));
       dynamicCards = [];
       btnLoad.textContent = 'Ver todos os projetos';
       isExpanded = false;
     }
   });
-
-  
 });
