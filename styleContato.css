@@ -36,14 +36,18 @@
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
+    margin-bottom: 24px; /* Adiciona espaçamento igual entre linhas */
   }
   
+  
   .form-grupo {
-    flex: 1 1 200px;
+    flex: 1;
+    min-width: 240px; /* garante que eles fiquem lado a lado quando possível */
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
   }
+  
   
   .form-grupo label {
     margin-bottom: 8px;
@@ -140,4 +144,5 @@
     .form-linha {
       flex-direction: column;
     }
+   
   }
