@@ -291,6 +291,20 @@ nav a:hover {
       align-items: center;
       text-align: center;
     }
+  
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  
+    .hero-img {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  
+    .buttons {
+      justify-content: center;
+    }
   }
   
 
