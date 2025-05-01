@@ -1,27 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Parte 1: Menu hamburguer
+  // === PARTE 1: Alternância de tema claro/escuro ===
+  const checkbox = document.getElementById('toggle-theme-checkbox');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+    document.body.classList.add('dark-theme');
+    checkbox.checked = true;
+  }
+  
+  checkbox.addEventListener('change', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+  
+
+  // === PARTE 2: Menu hambúrguer ===
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
   menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active'); // adiciona a animação do X
+    menuToggle.classList.toggle('active');
   });
-  
-  // Fecha o menu ao clicar em algum link
+
   const navLinks = document.querySelectorAll('.nav a');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
+      menuToggle.classList.remove('active');
     });
   });
 
-  // Parte 2: Botão de carregar projetos
-  const btnLoad = document.getElementById('load-more-projects');
-  const container = document.getElementById('projects-container');
-  let isExpanded = false;
-  let dynamicCards = [];
-
+  // === PARTE 3: Links externos abrem em nova aba ===
   function setLinksToOpenInNewTab(parent) {
     parent.querySelectorAll('a').forEach(link => {
       if (link.hostname && link.hostname !== window.location.hostname) {
@@ -31,8 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Aplica nos links já existentes
   setLinksToOpenInNewTab(document);
+
+  // === PARTE 4: Botão "Ver todos os projetos" ===
+  const btnLoad = document.getElementById('load-more-projects');
+  const container = document.getElementById('projects-container');
+  let isExpanded = false;
+  let dynamicCards = [];
 
   btnLoad.addEventListener('click', () => {
     if (!isExpanded) {
@@ -74,6 +90,4 @@ document.addEventListener('DOMContentLoaded', () => {
       isExpanded = false;
     }
   });
- 
-  
 });

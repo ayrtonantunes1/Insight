@@ -16,53 +16,52 @@ section h2 span {
 }
 
 .sobre {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-  }
-  
-  .sobre h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .sobre h2 span {
-    color: #f59e0b;
-    border-bottom: 4px solid #f59e0b;
-    padding-bottom: 4px;
-  }
-  
-  .sobre-conteudo {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-  }
-  
-  .sobre-img {
-    max-width: 450px;
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .sobre-texto {
-    max-width: 600px;
-    text-align: left;
-  }
-  
-  .sobre-texto h3 {
-    color: #111;
-    margin-top: 20px;
-    font-size: 1.5rem;
-  }
-  
-  .sobre-texto p {
-    color: #333;
-    margin-top: 10px;
-    line-height: 1.6;
-  }
-  
+  padding: 60px 20px;
+  background-color: var(--card-bg); /* adaptado ao tema */
+  text-align: center;
+}
+
+.sobre h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-color); /* texto adaptado ao tema */
+}
+
+.sobre h2 span {
+  color: var(--highlight);
+  border-bottom: 4px solid var(--highlight);
+  padding-bottom: 4px;
+}
+.sobre-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.sobre-img {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sobre-texto {
+  max-width: 600px;
+  text-align: left;
+}
+
+.sobre-texto h3 {
+  color: var(--text-color); /* corrigido */
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.sobre-texto p {
+  color: var(--text-color); /* corrigido */
+  margin-top: 10px;
+  line-height: 1.6;
+}
   .valores {
     display: flex;
     flex-wrap: wrap;
@@ -85,3 +84,45 @@ section h2 span {
     height: 40px;
     margin-bottom: 15px;
   }
+
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #111;
+    --highlight: #f59e0b;
+    --card-bg: #f9f9f9;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .sobre,
+  .card,
+  .valor-item {
+    background-color: var(--card-bg);
+  }
+  
+  /* Tema escuro */
+  body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --card-bg: #1e1e1e;
+  }
+  
+  #toggle-theme {
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--highlight);
+    transition: transform 0.2s;
+    
+  }
+  
+  #toggle-theme:hover {
+    transform: scale(1.2);
+  }
+  

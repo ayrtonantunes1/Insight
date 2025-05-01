@@ -13,23 +13,34 @@
 <body>
 
   <header class="top-bar">
-    <a href="index.html" class="logo-link logo-wrapper">
+    <a href="#inicio" class="logo-link logo-wrapper">
       <img src="img/insight.webp" alt="Logo Insight" class="logo-img">
       <span class="logo">Insight</span>
     </a>
   
-    <button id="menu-toggle" aria-label="Abrir Menu">☰</button>
+    <div class="right-content">
+      <div class="theme-toggle">
+        <input type="checkbox" class="checkbox" id="toggle-theme-checkbox" />
+        <label for="toggle-theme-checkbox" class="label">
+          <img src="img/sol.png" alt="Sol" class="icon-sun">
+          <img src="img/lua.png" alt="Lua" class="icon-moon">
+          <div class="ball"></div>
+        </label>
+      </div>
   
-    <nav class="nav" id="nav-menu">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-            <li><a href="index.html#sobre">Sobre a empresa</a></li>
-            <li><a href="index.html#equipe">Equipe</a></li>
-            <li><a href="index.html#servicos">Serviços</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+      <nav class="nav" id="nav-menu">
+        <ul>
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="index.html#sobre">Sobre a empresa</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="index.html#servicos">Serviços</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+  
+      <button id="menu-toggle" aria-label="Abrir Menu">☰</button>
+    </div>
   </header>
     
     <section id="projetos" class="projetos">
