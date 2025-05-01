@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>Instalação Elétrica - Casa Residencial</h3>
         <p>Serviço completo de instalação elétrica residencial, com certificação elétrica e garantia de segurança.</p>
         <div class="tags"></div>
-        <a href="https://exemplo1.com" class="card-link">Ver detalhes ➔</a>
+        <a href="#" class="card-link">Ver detalhes ➔</a>
       `;
 
       const card2 = document.createElement('div');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>Automação de Ar-condicionado - Empresa</h3>
         <p>Projeto de automação inteligente para ar-condicionado em ambiente corporativo, otimizando consumo e conforto.</p>
         <div class="tags"></div>
-        <a href="https://exemplo2.com" class="card-link">Ver detalhes ➔</a>
+        <a href="#" class="card-link">Ver detalhes ➔</a>
       `;
 
       container.appendChild(card1);
@@ -74,4 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
       isExpanded = false;
     }
   });
+ 
+  
 });
