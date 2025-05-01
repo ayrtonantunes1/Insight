@@ -104,6 +104,7 @@ nav a:hover {
   color: #f59e0b;
 }
 
+
 /* Botão Hamburguer */
 #menu-toggle {
   display: none;
@@ -157,7 +158,7 @@ nav a:hover {
 }
 
 
-@media (max-width: 200px) {
+@media (max-width: 480px) {
   .logo-img {
     height: 24px;
   }
@@ -309,96 +310,6 @@ nav a:hover {
   
 
   
-  
-  /* Seções */
-section {
-    padding: 4rem 2rem;
-}
-
-section h2 {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-section h2 span {
-    color: #f59e0b; /* Alterado para a cor solicitada */
-    border-bottom: 3px solid #f59e0b; /* Adicionado sublinhado */
-    padding-bottom: 4px;
-}
-
-.sobre {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-  }
-  
-  .sobre h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .sobre h2 span {
-    color: #f59e0b;
-    border-bottom: 4px solid #f59e0b;
-    padding-bottom: 4px;
-  }
-  
-  .sobre-conteudo {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-  }
-  
-  .sobre-img {
-    max-width: 450px;
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .sobre-texto {
-    max-width: 600px;
-    text-align: left;
-  }
-  
-  .sobre-texto h3 {
-    color: #111;
-    margin-top: 20px;
-    font-size: 1.5rem;
-  }
-  
-  .sobre-texto p {
-    color: #333;
-    margin-top: 10px;
-    line-height: 1.6;
-  }
-  
-  .valores {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-  }
-  
-  .valor-item {
-    flex: 1 1 200px;
-    max-width: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .valor-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
-  }
-  
-  
   /* Equipe */
   .equipe {
     padding: 60px 20px;
@@ -454,136 +365,7 @@ section h2 span {
     color: #222;
   }
 
-  /* === SERVIÇOS REFINADO === */
-.servicos {
-  padding: 40px 20px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.servicos h2 {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
-}
-
-.servicos h2 span {
-  color: #f59e0b;
-  border-bottom: 4px solid #f59e0b;
-  padding-bottom: 4px;
-}
-
-.servicos p {
-  color: #555;
-  font-size: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cards-servicos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.cards-servicos .card {
-  background: #f9f9f9;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  overflow: hidden;
-  max-width: 300px;
-  flex: 1 1 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.cards-servicos .card:hover {
-  transform: translateY(-8px);
-}
-
-.cards-servicos .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.cards-servicos .card h3 {
-  font-size: 1.2rem;
-  color: #222;
-  margin: 20px 16px 8px;
-}
-
-.cards-servicos .card p {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0 16px 16px;
-  flex-grow: 1;
-}
-
-
-/* Responsivo */
-@media (max-width: 200px) {
-  .cards-servicos {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* === CHAMADA PARA AÇÃO (CTA) === */
-.cta {
-  background-color: #fff7ed;
-  padding: 60px 20px;
-  text-align: center;
-  color: #000;
-}
-
-.cta-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.cta-content p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.btn-solicitar,
-.btn-contato {
-  background-color: #000;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn-solicitar:hover,
-.btn-contato:hover {
-  background-color: #333;
-}
-
-.btn-contato img {
-  width: 20px;
-  height: 20px;
-}
+ 
 
   /* === RODAPÉ === */
 .site-footer {
@@ -700,7 +482,7 @@ section h2 span {
   }
   
   /* Responsivo */
-  @media (max-width: 200px) {
+  @media (max-width: 480px) {
     .footer-wrap {
       flex-direction: column;
       align-items: center;
@@ -714,6 +496,7 @@ section h2 span {
       gap: 10px;
     }
   }
+
 
     /* Rolagem suave */
 html {
