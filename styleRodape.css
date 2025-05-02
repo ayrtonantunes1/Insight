@@ -1,0 +1,160 @@
+/* === RODAPÉ === */
+.site-footer {
+    background-color: #0d0d0f; /* Cor de fundo escura */
+    color: #ccc; /* Cor padrão do texto */
+    padding: 60px 20px 30px; /* Espaço interno: topo, laterais, base */
+    font-family: 'Inter', sans-serif; /* Fonte moderna e legível */
+  }
+  
+  .footer-wrap {
+    max-width: 1100px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha nas colunas */
+    gap: 40px; /* Espaço entre colunas */
+  }
+  
+  /* === Colunas do rodapé === */
+  .footer-col {
+    flex: 1 1 200px; /* Responsivo: ocupa ao menos 200px */
+  }
+  
+  /* === Branding (logo e slogan) === */
+  .footer-logo {
+    font-size: 1.8rem; /* Tamanho grande para o nome da marca */
+    color: #fff; /* Branco para destaque */
+    margin-bottom: 10px;
+    font-weight: 700; /* Negrito */
+  }
+  
+  .footer-logo .dot {
+    color: #f59e0b; /* Cor de destaque para ponto ou parte do logo */
+  }
+  
+  .footer-tagline {
+    font-size: 0.95rem; /* Texto menor */
+    margin-bottom: 20px;
+    color: #aaa; /* Cor suave para subtítulo */
+  }
+  
+  .footer-social a {
+    display: inline-block;
+    margin-right: 12px; /* Espaço entre ícones */
+  }
+  
+  .footer-social img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Deixa o ícone branco */
+    transition: opacity 0.2s; /* Suaviza mudança de opacidade no hover */
+  }
+  
+  .footer-social img:hover {
+    opacity: 0.7; /* Efeito ao passar o mouse */
+  }
+  
+  /* === Títulos das colunas do rodapé === */
+  .footer-col h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+  
+  /* === Lista de links === */
+  .footer-links {
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px; /* Espaço entre os itens */
+  }
+  
+  .footer-links a {
+    color: #ccc; /* Cor clara padrão */
+    font-size: 0.95rem;
+    transition: color 0.2s; /* Suaviza a troca de cor */
+  }
+  
+  .footer-links a:hover {
+    color: #f59e0b; /* Cor de destaque ao passar o mouse */
+  }
+  
+  /* === Informações de contato === */
+  .footer-contact .contact-item {
+    display: flex;
+    align-items: center; /* Alinha ícone e texto na vertical */
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  
+  .footer-contact img {
+    width: 24px;
+    height: 24px;
+    /* ícones de contato (telefone, e-mail, etc.) */
+  }
+  
+  /* === Barra inferior do rodapé === */
+  .footer-bottom {
+    border-top: 1px solid #222; /* Linha de separação */
+    margin-top: 40px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: #666; /* Cor mais escura para texto discreto */
+  }
+  
+  .footer-policy a {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0 8px;
+    transition: color 0.2s;
+  }
+  
+  .footer-policy a:hover {
+    color: #f59e0b; /* Destaque ao passar o mouse */
+  }
+  
+  .footer-policy span {
+    color: #444; /* Separadores ou elementos neutros */
+  }
+  
+  /* === Responsividade para telas pequenas === */
+  @media (max-width: 480px) {
+    .footer-wrap {
+      flex-direction: column; /* Colunas empilhadas */
+      align-items: center;
+      text-align: center; /* Centraliza o texto */
+    }
+  
+    .footer-contact, .footer-links, .footer-social {
+      justify-content: center; /* Centraliza os blocos */
+    }
+  
+    .footer-bottom {
+      flex-direction: column; /* Empilha conteúdo da barra inferior */
+      gap: 10px; /* Espaço entre itens */
+    }
+  }
+  
+  /* === Rolagem suave entre seções === */
+  html {
+    scroll-behavior: smooth; /* Transição suave ao clicar em links de navegação */
+  }
+  
+  /* === Compensação do scroll para evitar que o topo da seção fique escondido (por exemplo, atrás de um header fixo) === */
+  [id] {
+    scroll-margin-top: 100px; /* Ajusta a posição da âncora */
+  }
+  
+  /* Mesma compensação para seções específicas com ID */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+  

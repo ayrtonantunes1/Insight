@@ -1,18 +1,19 @@
 /* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove espaçamento interno padrão */
+  box-sizing: border-box; /* Inclui bordas e padding no cálculo das dimensões */
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  background-color: var(--bg-color);
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Inter', sans-serif; /* Fonte principal */
+  color: var(--text-color); /* Cor do texto baseada no tema */
+  line-height: 1.6; /* Altura das linhas para melhor legibilidade */
+  background-color: var(--bg-color); /* Cor de fundo do tema */
+  transition: background 0.3s, color 0.3s; /* Suaviza a transição entre temas */
 }
 
+/* Definições de variáveis para o tema claro */
 :root {
   --bg-color: #ffffff;
   --text-color: #111;
@@ -24,7 +25,7 @@ body {
   --cta-text: #000;
 }
 
-/* Tema escuro */
+/* Definições para o tema escuro (quando classe .dark-theme é adicionada ao body) */
 body.dark-theme {
   --bg-color: #121212;
   --text-color: #f0f0f0;
@@ -37,55 +38,59 @@ body.dark-theme {
 
 /* Links padrão */
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herda a cor do elemento pai */
 }
 
-/* Topo */
+/* Barra superior do site */
 .top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 2rem;
-  background-color: #0d0d0f;
-  color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  position: sticky;
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Espaço entre logo e menu */
+  padding: 1.2rem 2rem; /* Espaçamento interno */
+  background-color: #0d0d0f; /* Cor de fundo escura */
+  color: #fff; /* Texto branco */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  position: sticky; /* Fixa no topo ao rolar */
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* Prioridade alta sobre outros elementos */
   gap: 2rem;
 }
 
+/* Agrupamento da logo */
 .logo-wrapper {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* Imagem da logo */
 .logo-img {
   height: 32px;
   width: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Animação suave */
 }
 
+/* Efeito de escala ao passar o mouse */
 .logo-link:hover .logo-img {
   transform: scale(1.1);
 }
 
+/* Texto ao lado da logo */
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
 }
 
-/* Agrupamento botão de tema + menu */
+/* Agrupamento à direita (tema e menu) */
 .right-content {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-/* Tema Toggle */
+/* Container do botão de tema */
 .theme-toggle {
   margin-left: 1rem;
   z-index: 1100;
@@ -93,11 +98,13 @@ a {
   align-items: center;
 }
 
+/* Checkbox do toggle invisível */
 .checkbox {
   opacity: 0;
   position: absolute;
 }
 
+/* Estilo do botão de toggle */
 .label {
   background-color: #111;
   border-radius: 50px;
@@ -107,35 +114,37 @@ a {
   align-items: center;
   padding: 5px;
   position: relative;
-  height: 32px; /* aumentei um pouco para dar mais espaço interno */
+  height: 32px; /* Altura aumentada */
   width: 60px;
-  transform: scale(1.2);
-  border: 3px solid #fff; /* contorno branco mais espesso */
+  transform: scale(1.2); /* Tamanho geral maior */
+  border: 3px solid #fff; /* Contorno branco espesso */
 }
 
+/* Bola do toggle (indicador deslizante) */
 .label .ball {
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
   left: 1px;
-  height: 24px; /* menor para não encostar na borda */
+  height: 24px; /* Tamanho reduzido para não tocar as bordas */
   width: 24px;
-  transform: translateX(0px);
-  transition: transform 0.2s linear;
+  transform: translateX(0px); /* Posição inicial */
+  transition: transform 0.2s linear; /* Animação suave */
 }
 
+/* Quando ativado (tema escuro), move a bola para a direita */
 .checkbox:checked + .label .ball {
-  transform: translateX(28px); /* ajustado para o novo tamanho */
+  transform: translateX(28px);
 }
 
-
+/* Ícones do toggle */
 .label img {
   height: 16px;
   width: 16px;
   z-index: 1;
 }
 
+/* Ajustes de espaçamento para ícones */
 .icon-moon {
   margin-left: 4px;
 }
@@ -144,13 +153,14 @@ a {
   margin-right: 4px;
 }
 
-/* Menu principal */
+/* Navegação principal */
 .nav ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
 
+/* Estilo dos links do menu */
 .nav a {
   color: #fff;
   font-weight: 500;
@@ -159,10 +169,12 @@ a {
   position: relative;
 }
 
+/* Cor ao passar o mouse */
 .nav a:hover {
   color: #f59e0b;
 }
 
+/* Linha animada embaixo do link */
 .nav a::after {
   content: '';
   position: absolute;
@@ -174,10 +186,12 @@ a {
   transition: width 0.3s;
 }
 
+/* Quando hover, expande a linha */
 .nav a:hover::after {
   width: 100%;
 }
 
+/* Botão do menu hambúrguer (versão mobile) */
 #menu-toggle {
   display: none;
   background: none;
@@ -187,6 +201,7 @@ a {
   cursor: pointer;
 }
 
+/* Estilos para telas menores que 768px */
 @media (max-width: 768px) {
   #menu-toggle {
     display: block;
@@ -207,7 +222,7 @@ a {
   }
 
   .nav.active {
-    display: flex;
+    display: flex; /* Ativa o menu mobile */
   }
 
   .nav ul {
@@ -228,17 +243,18 @@ a {
   }
 }
 
+/* Estilos para telas menores que 480px */
 @media (max-width: 480px) {
   .logo-img {
-    height: 24px;
+    height: 24px; /* Logo menor */
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Texto menor */
   }
 
   .top-bar {
-    padding: 1rem;
+    padding: 1rem; /* Padding reduzido */
   }
 
   .nav ul {
@@ -464,99 +480,14 @@ button {
   margin-top: 8px; /* Espaço acima do parágrafo */
 }
 
- /* === SERVIÇOS REFINADO === */
-.servicos {
-  padding: 40px 20px;
-  background: var(--bg-color);
-  text-align: center;
-}
-
-.servicos h2 {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
-}
-
-.servicos h2 span {
-  color: var(--highlight);
-  border-bottom: 4px solid var(--highlight);
-  padding-bottom: 4px;
-}
-
-.servicos p {
-  color: var(--subtitle-color);
-  font-size: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cards-servicos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.cards-servicos .card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px var(--shadow-color);
-  overflow: visible;
-  max-width: 300px;
-  flex: 1 1 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-  height: auto;
-}
-
-.cards-servicos .card:hover {
-  transform: translateY(-8px);
-}
-
-.cards-servicos .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.cards-servicos .card h3 {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  margin: 20px 16px 8px;
-}
-
-.cards-servicos .card p {
-  font-size: 0.95rem;
-  color: var(--subtitle-color);
-  margin: 0 16px 16px;
-  flex-grow: 1;
-  overflow-wrap: break-word;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .cards-servicos {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cards-servicos .card {
-    width: 100%;
-    max-width: 90%;
-  }
-}
 
 /* === CHAMADA PARA AÇÃO (CTA) === */
 .cta {
-  background-color: var(--cta-bg);
-  padding: 60px 20px;
-  text-align: center;
-  color: var(--cta-text);
-  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--cta-bg); /* Cor de fundo para chamada */
+  padding: 60px 20px; /* Espaço interno */
+  text-align: center; /* Centraliza conteúdo */
+  color: var(--cta-text); /* Cor do texto */
+  transition: background-color 0.3s, color 0.3s; /* Suaviza mudança de tema */
 }
 
 .cta-content h2 {
@@ -569,187 +500,198 @@ button {
 .cta-content p {
   font-size: 1.1rem;
   margin-bottom: 30px;
-  color: var(--subtitle-color);
+  color: var(--subtitle-color); /* Usa cor de subtítulo para contraste */
 }
 
 .cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: flex; /* Layout horizontal */
+  flex-wrap: wrap; /* Quebra linha se necessário */
+  justify-content: center; /* Centraliza botões */
+  gap: 20px; /* Espaçamento entre botões */
 }
 
+/* Botões principais da CTA */
 .btn-solicitar,
 .btn-contato {
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
   padding: 12px 24px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.3s;
+  transition: background 0.3s; /* Efeito ao passar o mouse */
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; /* Espaço entre ícone e texto */
 }
 
+/* Efeito hover nos botões */
 .btn-solicitar:hover,
 .btn-contato:hover {
-  background-color: #333;
+  background-color: #333; /* Tom mais claro ao passar o mouse */
 }
 
+/* Ícone do botão de contato */
 .btn-contato img {
   width: 20px;
   height: 20px;
 }
-
-  /* === RODAPÉ === */
+/* === RODAPÉ === */
 .site-footer {
-    background-color: #0d0d0f;
-    color: #ccc;
-    padding: 60px 20px 30px;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  .footer-wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-  
-  /* Colunas */
-  .footer-col {
-    flex: 1 1 200px;
-  }
-  
-  /* Branding */
-  .footer-logo {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  .footer-logo .dot {
-    color: #f59e0b;
-  }
-  .footer-tagline {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    color: #aaa;
-  }
-  .footer-social a {
-    display: inline-block;
-    margin-right: 12px;
-  }
-  .footer-social img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-    transition: opacity 0.2s;
-  }
-  .footer-social img:hover {
-    opacity: 0.7;
-  }
-  
-  /* Títulos de coluna */
-  .footer-col h4 {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 16px;
-  }
-  
-  /* Links */
-  .footer-links {
-    list-style: none;
-    padding: 0;
-  }
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  .footer-links a {
-    color: #ccc;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover {
-    color: #f59e0b;
-  }
-  
-  /* Contato */
-  .footer-contact .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .footer-contact img {
-    width: 24px;
-    height: 24px;
-    
-  }
-  
-  /* Bottom bar */
-  .footer-bottom {
-    border-top: 1px solid #222;
-    margin-top: 40px;
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-bottom p {
-    font-size: 0.85rem;
-    color: #666;
-  }
-  .footer-policy a {
-    color: #666;
-    font-size: 0.85rem;
-    margin: 0 8px;
-    transition: color 0.2s;
-  }
-  .footer-policy a:hover {
-    color: #f59e0b;
-  }
-  .footer-policy span {
-    color: #444;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 480px) {
-    .footer-wrap {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .footer-contact, .footer-links, .footer-social {
-      justify-content: center;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-
-
-    /* Rolagem suave */
-html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Ajuste para posicionamento correto na rolagem */
-[id] {
-  scroll-margin-top: 100px; /* Ou o valor que você achar melhor */
+  background-color: #0d0d0f; /* Cor de fundo escura */
+  color: #ccc; /* Cor padrão do texto */
+  padding: 60px 20px 30px; /* Espaço interno: topo, laterais, base */
+  font-family: 'Inter', sans-serif; /* Fonte moderna e legível */
 }
 
+.footer-wrap {
+  max-width: 1100px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra de linha nas colunas */
+  gap: 40px; /* Espaço entre colunas */
+}
 
-  /* Ajuste de posicionamento para não cortar conteúdo */
-section[id] {
-    scroll-margin-top: 100px; /* Ajuste conforme a altura do seu header */
+/* === Colunas do rodapé === */
+.footer-col {
+  flex: 1 1 200px; /* Responsivo: ocupa ao menos 200px */
+}
+
+/* === Branding (logo e slogan) === */
+.footer-logo {
+  font-size: 1.8rem; /* Tamanho grande para o nome da marca */
+  color: #fff; /* Branco para destaque */
+  margin-bottom: 10px;
+  font-weight: 700; /* Negrito */
+}
+
+.footer-logo .dot {
+  color: #f59e0b; /* Cor de destaque para ponto ou parte do logo */
+}
+
+.footer-tagline {
+  font-size: 0.95rem; /* Texto menor */
+  margin-bottom: 20px;
+  color: #aaa; /* Cor suave para subtítulo */
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 12px; /* Espaço entre ícones */
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Deixa o ícone branco */
+  transition: opacity 0.2s; /* Suaviza mudança de opacidade no hover */
+}
+
+.footer-social img:hover {
+  opacity: 0.7; /* Efeito ao passar o mouse */
+}
+
+/* === Títulos das colunas do rodapé === */
+.footer-col h4 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+/* === Lista de links === */
+.footer-links {
+  list-style: none; /* Remove marcadores */
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px; /* Espaço entre os itens */
+}
+
+.footer-links a {
+  color: #ccc; /* Cor clara padrão */
+  font-size: 0.95rem;
+  transition: color 0.2s; /* Suaviza a troca de cor */
+}
+
+.footer-links a:hover {
+  color: #f59e0b; /* Cor de destaque ao passar o mouse */
+}
+
+/* === Informações de contato === */
+.footer-contact .contact-item {
+  display: flex;
+  align-items: center; /* Alinha ícone e texto na vertical */
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.footer-contact img {
+  width: 24px;
+  height: 24px;
+  /* ícones de contato (telefone, e-mail, etc.) */
+}
+
+/* === Barra inferior do rodapé === */
+.footer-bottom {
+  border-top: 1px solid #222; /* Linha de separação */
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #666; /* Cor mais escura para texto discreto */
+}
+
+.footer-policy a {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0 8px;
+  transition: color 0.2s;
+}
+
+.footer-policy a:hover {
+  color: #f59e0b; /* Destaque ao passar o mouse */
+}
+
+.footer-policy span {
+  color: #444; /* Separadores ou elementos neutros */
+}
+
+/* === Responsividade para telas pequenas === */
+@media (max-width: 480px) {
+  .footer-wrap {
+    flex-direction: column; /* Colunas empilhadas */
+    align-items: center;
+    text-align: center; /* Centraliza o texto */
   }
 
-  
-  
-  
+  .footer-contact, .footer-links, .footer-social {
+    justify-content: center; /* Centraliza os blocos */
+  }
+
+  .footer-bottom {
+    flex-direction: column; /* Empilha conteúdo da barra inferior */
+    gap: 10px; /* Espaço entre itens */
+  }
+}
+
+/* === Rolagem suave entre seções === */
+html {
+  scroll-behavior: smooth; /* Transição suave ao clicar em links de navegação */
+}
+
+/* === Compensação do scroll para evitar que o topo da seção fique escondido (por exemplo, atrás de um header fixo) === */
+[id] {
+  scroll-margin-top: 100px; /* Ajusta a posição da âncora */
+}
+
+/* Mesma compensação para seções específicas com ID */
+section[id] {
+  scroll-margin-top: 100px;
+}

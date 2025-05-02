@@ -1,128 +1,131 @@
-/* Seções */
+/* === PADRÃO PARA TODAS AS SEÇÕES === */
 section {
-    padding: 4rem 2rem;
+  padding: 4rem 2rem; /* Adiciona espaçamento interno: 4rem no topo/baixo e 2rem nas laterais */
 }
 
 section h2 {
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 2rem;
+  font-size: 2.2rem; /* Define o tamanho da fonte do título */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 2rem; /* Espaço abaixo do título */
 }
 
 section h2 span {
-    color: #f59e0b; /* Alterado para a cor solicitada */
-    border-bottom: 3px solid #f59e0b; /* Adicionado sublinhado */
-    padding-bottom: 4px;
+  color: #f59e0b; /* Cor laranja para destaque */
+  border-bottom: 3px solid #f59e0b; /* Sublinha com a mesma cor */
+  padding-bottom: 4px; /* Espaço entre o texto e a linha */
 }
 
+/* === SEÇÃO SOBRE === */
 .sobre {
-  padding: 60px 20px;
-  background-color: var(--card-bg); /* adaptado ao tema */
-  text-align: center;
+  padding: 60px 20px; /* Espaçamento interno da seção */
+  background-color: var(--card-bg); /* Usa cor de fundo com base no tema atual */
+  text-align: center; /* Centraliza o conteúdo por padrão */
 }
 
 .sobre h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: var(--text-color); /* texto adaptado ao tema */
+  font-size: 2.5rem; /* Título maior para se destacar */
+  margin-bottom: 20px; /* Espaço inferior */
+  color: var(--text-color); /* Cor de texto adaptável ao tema */
 }
 
 .sobre h2 span {
-  color: var(--highlight);
-  border-bottom: 4px solid var(--highlight);
-  padding-bottom: 4px;
+  color: var(--highlight); /* Cor destacada definida na variável */
+  border-bottom: 4px solid var(--highlight); /* Sublinha com mesma cor */
+  padding-bottom: 4px; /* Espaço inferior do sublinhado */
 }
+
 .sobre-conteudo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
+  display: flex; /* Ativa o layout flexível */
+  flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+  align-items: center; /* Alinha verticalmente os itens */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  gap: 40px; /* Espaçamento entre os elementos */
 }
 
 .sobre-img {
-  max-width: 450px;
-  width: 100%;
-  border-radius: 10px;
+  max-width: 450px; /* Largura máxima da imagem */
+  width: 100%; /* Imagem ocupa toda a largura disponível */
+  border-radius: 10px; /* Bordas arredondadas */
 }
 
 .sobre-texto {
-  max-width: 600px;
-  text-align: left;
+  max-width: 600px; /* Limita a largura do texto */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.sobre-texto h3,
+.sobre-texto p {
+  color: var(--text-color); /* Usa a cor de texto do tema (claro/escuro) */
 }
 
 .sobre-texto h3 {
-  color: var(--text-color); /* corrigido */
-  margin-top: 20px;
-  font-size: 1.5rem;
+  margin-top: 20px; /* Espaço acima do subtítulo */
+  font-size: 1.5rem; /* Tamanho do subtítulo */
 }
 
 .sobre-texto p {
-  color: var(--text-color); /* corrigido */
-  margin-top: 10px;
-  line-height: 1.6;
+  margin-top: 10px; /* Espaço acima do parágrafo */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
 }
-  .valores {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-  }
-  
-  .valor-item {
-    flex: 1 1 200px;
-    max-width: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .valor-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
-  }
 
-  :root {
-    --bg-color: #ffffff;
-    --text-color: #111;
-    --highlight: #f59e0b;
-    --card-bg: #f9f9f9;
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .sobre,
-  .card,
-  .valor-item {
-    background-color: var(--card-bg);
-  }
-  
-  /* Tema escuro */
-  body.dark-theme {
-    --bg-color: #121212;
-    --text-color: #f0f0f0;
-    --card-bg: #1e1e1e;
-  }
-  
-  #toggle-theme {
-    margin-left: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--highlight);
-    transition: transform 0.2s;
-    
-  }
-  
-  #toggle-theme:hover {
-    transform: scale(1.2);
-  }
-  
+/* === VALORES === */
+.valores {
+  display: flex; /* Layout flexível */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Centraliza os itens */
+  gap: 40px; /* Espaçamento entre os blocos */
+  margin-top: 40px; /* Espaço acima da seção */
+}
+
+.valor-item {
+  flex: 1 1 200px; /* Flexível, cresce ou encolhe com base no espaço */
+  max-width: 220px; /* Largura máxima */
+  display: flex; /* Layout interno em coluna */
+  flex-direction: column; /* Empilha os filhos verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center; /* Centraliza o conteúdo de texto */
+  background-color: var(--card-bg); /* Fundo adaptável ao tema */
+}
+
+.valor-icon {
+  width: 40px; /* Largura do ícone */
+  height: 40px; /* Altura do ícone */
+  margin-bottom: 15px; /* Espaço abaixo do ícone */
+}
+
+/* === VARIÁVEIS DE TEMA CLARO === */
+:root {
+  --bg-color: #ffffff; /* Cor de fundo clara */
+  --text-color: #111; /* Cor de texto escura */
+  --highlight: #f59e0b; /* Cor de destaque (laranja) */
+  --card-bg: #f9f9f9; /* Cor de fundo dos cartões e seções */
+}
+
+/* === TEMA CLARO PADRÃO === */
+body {
+  background-color: var(--bg-color); /* Aplica cor de fundo clara */
+  color: var(--text-color); /* Aplica cor de texto escura */
+  transition: background-color 0.3s, color 0.3s; /* Suaviza a transição ao mudar o tema */
+}
+
+/* === TEMA ESCURO === */
+body.dark-theme {
+  --bg-color: #121212; /* Fundo escuro */
+  --text-color: #f0f0f0; /* Texto claro */
+  --card-bg: #1e1e1e; /* Cartões escuros */
+}
+
+/* === BOTÃO DE TROCA DE TEMA === */
+#toggle-theme {
+  margin-left: 1rem; /* Espaço à esquerda (caso esteja ao lado de outro botão) */
+  background: none; /* Remove fundo padrão do botão */
+  border: none; /* Remove borda padrão */
+  font-size: 1.5rem; /* Tamanho do ícone/texto */
+  cursor: pointer; /* Muda o cursor para indicar clicável */
+  color: var(--highlight); /* Usa cor de destaque */
+  transition: transform 0.2s; /* Animação de escala ao interagir */
+}
+
+#toggle-theme:hover {
+  transform: scale(1.2); /* Aumenta levemente o botão ao passar o mouse */
+}

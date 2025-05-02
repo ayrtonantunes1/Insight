@@ -1,74 +1,74 @@
 /* === PROJETOS REFINADO (adaptado para tema claro/escuro) === */
 .projetos {
-  padding: 40px 20px;
-  background: var(--bg-color);
-  text-align: center;
+  padding: 40px 20px; /* Espaçamento interno: vertical 40px, horizontal 20px */
+  background: var(--bg-color); /* Cor de fundo dinâmica (claro ou escuro) */
+  text-align: center; /* Centraliza o conteúdo */
 }
 
 .projetos h2 {
   font-size: 2.2rem;
   margin-bottom: 8px;
-  color: var(--text-color);
+  color: var(--text-color); /* Cor do título baseada no tema */
 }
 
 .projetos h2 span {
-  color: var(--highlight);
-  border-bottom: 4px solid var(--highlight);
+  color: var(--highlight); /* Cor destacada */
+  border-bottom: 4px solid var(--highlight); /* Linha inferior para destaque */
   padding-bottom: 4px;
 }
 
 .projetos p {
-  color: var(--subtitle-color);
+  color: var(--subtitle-color); /* Cor de subtítulo (mais suave) */
   font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto 32px;
+  max-width: 600px; /* Limita largura do parágrafo */
+  margin: 0 auto 32px; /* Centraliza e dá espaço inferior */
 }
 
-/* container flexível para os cards */
+/* === CONTAINER FLEXÍVEL PARA OS CARDS === */
 .cards.projetos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  margin: 40px 0;
+  flex-wrap: wrap; /* Permite quebra de linha */
+  gap: 24px; /* Espaço entre os cards */
+  justify-content: center; /* Alinha os cards ao centro */
+  margin: 40px 0; /* Espaçamento vertical externo */
 }
 
-/* card */
+/* === CARD INDIVIDUAL === */
 .card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px var(--shadow-color);
+  background: var(--card-bg); /* Cor de fundo do card (tema claro/escuro) */
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 4px 20px var(--shadow-color); /* Sombra suave */
   overflow: hidden;
-  flex: 1 1 280px;
+  flex: 1 1 280px; /* Flexível com base mínima de 280px */
   max-width: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Coloca conteúdo em coluna */
   align-items: center;
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s; /* Animação no hover */
   position: relative;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px); /* Efeito de elevação ao passar o mouse */
 }
 
-/* imagem do card */
+/* === IMAGEM DO CARD === */
 .card img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  object-fit: cover; /* Cobre mantendo proporção */
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-/* badge de categoria */
+/* === BADGE DE CATEGORIA SOBRE A IMAGEM === */
 .card .category {
   position: absolute;
   top: 210px;
   left: 22px;
-  background: var(--badge-bg, #fbd38d);
-  color: var(--badge-text, #92400e);
+  background: var(--badge-bg, #fbd38d); /* Fundo com fallback */
+  color: var(--badge-text, #92400e); /* Texto com fallback */
   font-size: 0.75rem;
   font-weight: 600;
   padding: 6px 12px;
@@ -76,7 +76,7 @@
   z-index: 1;
 }
 
-/* título e descrição */
+/* === TÍTULO E DESCRIÇÃO DO CARD === */
 .card h3 {
   font-size: 1.2rem;
   color: var(--text-color);
@@ -87,10 +87,10 @@
   font-size: 0.95rem;
   color: var(--subtitle-color);
   margin: 0 16px 16px;
-  flex-grow: 1;
+  flex-grow: 1; /* Empurra o link para o fim, mantendo altura uniforme */
 }
 
-/* link “Ver detalhes” */
+/* === LINK “VER DETALHES” === */
 .card-link {
   display: block;
   margin: 0 16px 16px;
@@ -103,7 +103,7 @@
   text-decoration: underline;
 }
 
-/* botão “Ver todos os projetos” */
+/* === BOTÃO “VER TODOS OS PROJETOS” === */
 .projetos-btn {
   border: 2px solid var(--highlight);
   background: transparent;
@@ -116,11 +116,13 @@
 }
 
 .projetos-btn:hover {
-  background-color: var(--highlight);
-  color: #fff;
+  background-color: var(--highlight); /* Fundo laranja */
+  color: #fff; /* Texto branco ao passar o mouse */
 }
 
-/* responsivo: 2 cards por linha no tablet */
+/* === RESPONSIVIDADE === */
+
+/* Tablets (máx. 992px): 2 cards por linha */
 @media (max-width: 992px) {
   .card {
     flex: 1 1 calc(50% - 24px);
@@ -128,7 +130,7 @@
   }
 }
 
-/* responsivo: 1 card por linha no mobile */
+/* Celulares (máx. 600px): 1 card por linha */
 @media (max-width: 600px) {
   .card {
     flex: 1 1 100%;

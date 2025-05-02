@@ -1,0 +1,86 @@
+
+/* === SERVIÇOS REFINADO === */
+.servicos {
+    padding: 40px 20px; /* Espaçamento interno */
+    background: var(--bg-color); /* Cor de fundo adaptável ao tema */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .servicos h2 {
+    font-size: 2.2rem; /* Tamanho grande para título */
+    margin-bottom: 8px; /* Espaço abaixo do título */
+  }
+  
+  .servicos h2 span {
+    color: var(--highlight); /* Destaque na cor */
+    border-bottom: 4px solid var(--highlight); /* Linha embaixo do texto */
+    padding-bottom: 4px; /* Espaço entre o texto e a linha */
+  }
+  
+  .servicos p {
+    color: var(--subtitle-color); /* Cor mais suave */
+    font-size: 1rem; /* Tamanho padrão de parágrafo */
+    max-width: 600px; /* Limita a largura do texto */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza horizontalmente */
+  }
+  
+  .cards-servicos {
+    display: flex; /* Flexbox para os cards */
+    flex-wrap: wrap; /* Quebra linha em telas menores */
+    gap: 24px; /* Espaço entre os cards */
+    justify-content: center; /* Centraliza os cards */
+    margin: 40px 0; /* Espaço acima e abaixo */
+  }
+  
+  .cards-servicos .card {
+    background: var(--card-bg); /* Cor do fundo do card */
+    border-radius: 16px; /* Cantos arredondados */
+    box-shadow: 0 4px 20px var(--shadow-color); /* Sombra suave */
+    overflow: visible; /* Permite conteúdo visível fora do card */
+    max-width: 300px; /* Largura máxima */
+    flex: 1 1 280px; /* Cresce até 300px mas começa com 280px */
+    display: flex;
+    flex-direction: column; /* Elementos empilhados verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center; /* Texto centralizado */
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s; /* Suaviza interações */
+    height: auto;
+  }
+  
+  .cards-servicos .card:hover {
+    transform: translateY(-8px); /* Efeito de “levantar” ao passar o mouse */
+  }
+  
+  .cards-servicos .card img {
+    width: 100%; /* Ocupa toda a largura */
+    height: 180px; /* Altura fixa */
+    object-fit: cover; /* Cobre todo o espaço da imagem */
+  }
+  
+  .cards-servicos .card h3 {
+    font-size: 1.2rem;
+    color: var(--text-color); /* Texto principal adaptável ao tema */
+    margin: 20px 16px 8px; /* Espaçamento ao redor */
+  }
+  
+  .cards-servicos .card p {
+    font-size: 0.95rem; /* Texto levemente menor */
+    color: var(--subtitle-color); /* Cor de subtítulo */
+    margin: 0 16px 16px;
+    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço restante */
+    overflow-wrap: break-word; /* Quebra palavras longas */
+  }
+  
+  /* === RESPONSIVIDADE === */
+  @media (max-width: 768px) {
+    .cards-servicos {
+      flex-direction: column; /* Empilha cards verticalmente */
+      align-items: center; /* Centraliza na tela */
+    }
+  
+    .cards-servicos .card {
+      width: 100%; /* Ocupa toda a largura */
+      max-width: 90%; /* Máximo de 90% da tela */
+    }
+  }
