@@ -131,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
           })
           .then(() => {
             console.log('Confirmação enviada ao usuário');
-            alert('Obrigado pelo contato! Confira sua caixa de entrada.');
+            alert('Obrigado pelo contato! Confira seu email que iremos lhe respoder!.');
             form.reset();
           })
           .catch(err => {
             console.error('Erro no envio:', err);
-            alert('Erro ao enviar o formulário. Veja o console para mais detalhes.');
+            alert('Erro ao enviar a mensagem!!.');
           });
         });
       }
