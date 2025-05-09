@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => {
         console.error('Erro no envio de confirmação:', err);
-        alert('Erro ao enviar confirmação. Veja console para detalhes.');
+        alert('Erro ao enviar a mensagem!!.');
       });
     });
   }
