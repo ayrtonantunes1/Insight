@@ -92,38 +92,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === PARTE 5: Envio formulário usando apenas template_confirmation ===
-  const form = document.getElementById('form-contato');
-  if (form && typeof emailjs !== 'undefined') {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const nome     = form.nome.value.trim();
-      const email    = form.email.value.trim();
-      const assunto  = form.assunto.value.trim();
-      const mensagem = form.mensagem.value.trim();
+    // === PARTE 5: Envio formulário para ADM e confirmação ao usuário ===
+    const form = document.getElementById('form-contato');
+      if (form && typeof emailjs !== 'undefined') {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const nome     = form.nome.value.trim();
+          const email    = form.email.value.trim();
+          const assunto  = form.assunto.value.trim();
+          const mensagem = form.mensagem.value.trim();
 
-      if (!nome || !email || !assunto || !mensagem) {
-        alert('Por favor, preencha todos os campos.');
-        return;
+          if (!nome || !email || !assunto || !mensagem) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+          }
+
+          const timestamp = new Date().toLocaleString();
+
+          // 1º Envio: para você (ADM) com template_dockz9t
+          emailjs.send(EMAILJS_SERVICE_ID, 'template_dockz9t', {
+            name: nome,
+            email: email,
+            title: assunto,
+            message: mensagem,
+            time: timestamp
+          })
+          .then(() => {
+            console.log('Mensagem enviada ao administrador.');
+
+            // 2º Envio: confirmação ao usuário
+            return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONFIRM, {
+              to_email: email,
+              name: nome,
+              title: assunto,
+              message: mensagem,
+              website_link: window.location.origin
+            });
+          })
+          .then(() => {
+            console.log('Confirmação enviada ao usuário');
+            alert('Obrigado pelo contato! Confira sua caixa de entrada.');
+            form.reset();
+          })
+          .catch(err => {
+            console.error('Erro no envio:', err);
+            alert('Erro ao enviar o formulário. Veja o console para mais detalhes.');
+          });
+        });
       }
-
-      // Envio único: template_confirmation para o usuário
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONFIRM, {
-        to_email: email,
-        name: nome,
-        title: assunto,
-        message: mensagem,
-        website_link: window.location.origin
-      })
-      .then(() => {
-        console.log('Confirmação enviada ao usuário');
-        alert('Obrigado pelo contato! Confira sua caixa de entrada.');
-        form.reset();
-      })
-      .catch(err => {
-        console.error('Erro no envio de confirmação:', err);
-        alert('Erro ao enviar a mensagem!!.');
-      });
-    });
-  }
 });
