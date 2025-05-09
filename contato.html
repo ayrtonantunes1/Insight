@@ -42,84 +42,88 @@
         </div>
       </header>
 
-    <section id="contato" class="contato">
-        <div class="contato-container">
-            <div class="contato-form">
-            <h2>Entre em <span>Contato</span></h2>
-            <p>Estamos prontos para ouvir suas ideias e transformá-las em realidade. Entre em contato conosco para iniciarmos uma conversa.</p>
-        
-            <form>
-                <div class="form-linha">
-                <div class="form-grupo">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" placeholder="Seu nome" />
-                </div>
-                <div class="form-grupo">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="seu@email.com" />
-                </div>
-                </div>
-        
-                <div class="form-grupo">
-                <label for="assunto">Assunto</label>
-                <input type="text" id="assunto" placeholder="Assunto da mensagem" />
-                </div>
-        
-                <div class="form-grupo">
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
-                </div>
-        
-                <button type="submit" class="btn-submit">Enviar Mensagem</button>
-            </form>
-            </div>
-        
-            <div class="contato-info">
-            <h3>Informações de Contato</h3>
-        
-            <div class="info-item">
-                <img src="img/localC.png" alt="Endereço">
-                <div>
-                <strong>Endereço</strong>
-                <p>Av. dos Portugueses, 1000, São Luis - MA</p>
-                </div>
-            </div>
-        
-            <div class="info-item">
-                <img src="img/e-mail.png" alt="Email">
-                <div>
-                <strong>Email</strong>
-                <p>insightjunior.dee@ufma.br</p>
-                </div>
-            </div>
-        
-            <div class="info-item">
-                <img src="img/telefoneR.png" alt="Telefone">
-                <div>
-                <strong>Telefone</strong>
-                <p>(98) 4002-8922</p>
-                </div>
-            </div>
-        
-            <div class="redes-sociais">
-                <strong>Redes Sociais</strong>
-                <div class="icones">
-                  <a href="https://linktr.ee/insightengenhariajr" target="_blank">
-                    <img src="img/linkedin laranja.png" alt="LinkedIn">
-                  </a>
-                  <a href="https://www.instagram.com/insightengenhariajr/" target="_blank">
-                    <img src="img/instagram laranja.png" alt="Instagram">
-                  </a>
-                  <a href="tel:+55 (98) 98555-0472" target="_blank">
-                    <img src="img/whatsapp laranja.png" alt="WhatsApp">
-                  </a>
-                  <a href="https://www.facebook.com/insightengenhariajr/" target="_blank">
-                    <img src="img/facebook laranja.png" alt="Facebook">
-                  </a>
-                </div>
-            </div>
+    <!-- ... (cabeçalho igual ao seu) -->
+
+<section id="contato" class="contato">
+  <div class="contato-container">
+    <div class="contato-form">
+      <h2>Entre em <span>Contato</span></h2>
+      <p>Estamos prontos para ouvir suas ideias e transformá-las em realidade. Entre em contato conosco para iniciarmos uma conversa.</p>
+
+      <!-- Formulário com ID e NAMEs exigidos pelo EmailJS -->
+      <form id="form-contato">
+        <div class="form-linha">
+          <div class="form-grupo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="form-grupo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
         </div>
-        </section>
+
+        <div class="form-grupo">
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
+        </div>
+
+        <div class="form-grupo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+      </form>
+    </div>
+
+    <div class="contato-info">
+      <h3>Informações de Contato</h3>
+
+      <div class="info-item">
+        <img src="img/localC.png" alt="Endereço">
+        <div>
+          <strong>Endereço</strong>
+          <p>Av. dos Portugueses, 1000, São Luis - MA</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <img src="img/e-mail.png" alt="Email">
+        <div>
+          <strong>Email</strong>
+          <p>insightjunior.dee@ufma.br</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <img src="img/telefoneR.png" alt="Telefone">
+        <div>
+          <strong>Telefone</strong>
+          <p>(98) 4002-8922</p>
+        </div>
+      </div>
+
+      <div class="redes-sociais">
+        <strong>Redes Sociais</strong>
+        <div class="icones">
+          <a href="https://linktr.ee/insightengenhariajr" target="_blank">
+            <img src="img/linkedin laranja.png" alt="LinkedIn">
+          </a>
+          <a href="https://www.instagram.com/insightengenhariajr/" target="_blank">
+            <img src="img/instagram laranja.png" alt="Instagram">
+          </a>
+          <a href="tel:+55 (98) 98555-0472" target="_blank">
+            <img src="img/whatsapp laranja.png" alt="WhatsApp">
+          </a>
+          <a href="https://www.facebook.com/insightengenhariajr/" target="_blank">
+            <img src="img/facebook laranja.png" alt="Facebook">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         <footer class="site-footer">
         <div class="footer-wrap">
@@ -195,7 +199,20 @@
             </div>
         </div>
         </footer>
-        
+
+       <!-- Correção: SDK oficial @emailjs/browser v4 -->
+        <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+        (function(){
+          emailjs.init({
+            publicKey: 'xiMgjlLfTqUZ07lmo'
+          });
+        })();
+        </script>
+        <!-- 3) seus scripts -->
         <script src="projects.js"></script>
 
 </body>

@@ -1,93 +1,129 @@
+// contato.js
+// Unifica funcionalidades: tema, menu, links externos, projetos e envio EmailJS (confirmação ao usuário)
+
+// IDs EmailJS
+const EMAILJS_USER_ID           = 'xiMgjlLfTqUZ07lmo';
+const EMAILJS_SERVICE_ID        = 'service_8d8cbxr';
+const EMAILJS_TEMPLATE_CONFIRM  = 'template_confirmation';  // ajuste aqui se seu ID for diferente
+
 document.addEventListener('DOMContentLoaded', () => {
-  // === PARTE 1: Alternância de tema claro/escuro ===
+  // === Inicializa EmailJS ===
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_USER_ID);
+  }
+
+  // === PARTE 1: Tema claro/escuro ===
   const checkbox = document.getElementById('toggle-theme-checkbox');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
-    document.body.classList.add('dark-theme');
-    checkbox.checked = true;
+  if (checkbox) {
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+      document.body.classList.add('dark-theme');
+      checkbox.checked = true;
+    }
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    });
   }
-  
-  checkbox.addEventListener('change', () => {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-  
 
   // === PARTE 2: Menu hambúrguer ===
   const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-  });
-
-  const navLinks = document.querySelectorAll('.nav a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
+  const navMenu    = document.getElementById('nav-menu');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
     });
-  });
-
-  // === PARTE 3: Links externos abrem em nova aba ===
-  function setLinksToOpenInNewTab(parent) {
-    parent.querySelectorAll('a').forEach(link => {
-      if (link.hostname && link.hostname !== window.location.hostname) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-      }
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
     });
   }
 
-  setLinksToOpenInNewTab(document);
+  // === PARTE 3: Links externos nova aba ===
+  (function setLinks(parent) {
+    parent.querySelectorAll('a').forEach(link => {
+      if (link.hostname && link.hostname !== window.location.hostname) {
+        link.setAttribute('target','_blank');
+        link.setAttribute('rel','noopener noreferrer');
+      }
+    });
+  })(document);
 
-  // === PARTE 4: Botão "Ver todos os projetos" ===
+  // === PARTE 4: Projetos dinâmicos ===
   const btnLoad = document.getElementById('load-more-projects');
   const container = document.getElementById('projects-container');
   let isExpanded = false;
   let dynamicCards = [];
 
-  btnLoad.addEventListener('click', () => {
-    if (!isExpanded) {
-      const card1 = document.createElement('div');
-      card1.className = 'card';
-      card1.innerHTML = `
-        <div class="category">Residencial</div>
-        <img src="serviços/instalaçoes eletricas.jpg" alt="Instalação Elétrica - Casa">
-        <h3>Instalação Elétrica - Casa Residencial</h3>
-        <p>Serviço completo de instalação elétrica residencial, com certificação elétrica e garantia de segurança.</p>
-        <div class="tags"></div>
-        <a href="#" class="card-link">Ver detalhes ➔</a>
-      `;
+  if (btnLoad && container) {
+    btnLoad.addEventListener('click', () => {
+      if (!isExpanded) {
+        const items = [
+          { type: 'Residencial', img: 'instalaçoes eletricas.jpg', title: 'Instalação Elétrica - Casa Residencial', desc: 'Serviço completo de instalação elétrica residencial, com certificação elétrica e garantia de segurança.' },
+          { type: 'Comercial',    img: 'consultoria.jpg',            title: 'Automação de Ar-condicionado - Empresa',      desc: 'Projeto de automação inteligente para ar-condicionado em ambiente corporativo, otimizando consumo e conforto.' }
+        ];
 
-      const card2 = document.createElement('div');
-      card2.className = 'card';
-      card2.innerHTML = `
-        <div class="category">Comercial</div>
-        <img src="serviços/consultoria.jpg" alt="Automação de Ar-condicionado">
-        <h3>Automação de Ar-condicionado - Empresa</h3>
-        <p>Projeto de automação inteligente para ar-condicionado em ambiente corporativo, otimizando consumo e conforto.</p>
-        <div class="tags"></div>
-        <a href="#" class="card-link">Ver detalhes ➔</a>
-      `;
+        items.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <div class="category">${item.type}</div>
+            <img src="serviços/${item.img}" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+            <a href="#" class="card-link">Ver detalhes ➔</a>
+          `;
+          container.appendChild(card);
+          dynamicCards.push(card);
+          (function setLinks(c){ c.querySelectorAll('a').forEach(l=>{ if(l.hostname && l.hostname !== window.location.hostname){ l.target='_blank'; l.rel='noopener noreferrer'; }}); })(card);
+        });
 
-      container.appendChild(card1);
-      container.appendChild(card2);
-      dynamicCards.push(card1, card2);
+        btnLoad.textContent = 'Ver menos projetos';
+        isExpanded = true;
+      } else {
+        dynamicCards.forEach(c => c.remove());
+        dynamicCards = [];
+        btnLoad.textContent = 'Ver todos os projetos';
+        isExpanded = false;
+      }
+    });
+  }
 
-      setLinksToOpenInNewTab(card1);
-      setLinksToOpenInNewTab(card2);
+  // === PARTE 5: Envio formulário usando apenas template_confirmation ===
+  const form = document.getElementById('form-contato');
+  if (form && typeof emailjs !== 'undefined') {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const nome     = form.nome.value.trim();
+      const email    = form.email.value.trim();
+      const assunto  = form.assunto.value.trim();
+      const mensagem = form.mensagem.value.trim();
 
-      btnLoad.textContent = 'Ver menos projetos';
-      isExpanded = true;
-    } else {
-      dynamicCards.forEach(c => container.removeChild(c));
-      dynamicCards = [];
-      btnLoad.textContent = 'Ver todos os projetos';
-      isExpanded = false;
-    }
-  });
+      if (!nome || !email || !assunto || !mensagem) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      // Envio único: template_confirmation para o usuário
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONFIRM, {
+        to_email: email,
+        name: nome,
+        title: assunto,
+        message: mensagem,
+        website_link: window.location.origin
+      })
+      .then(() => {
+        console.log('Confirmação enviada ao usuário');
+        alert('Obrigado pelo contato! Confira sua caixa de entrada.');
+        form.reset();
+      })
+      .catch(err => {
+        console.error('Erro no envio de confirmação:', err);
+        alert('Erro ao enviar confirmação. Veja console para detalhes.');
+      });
+    });
+  }
 });
